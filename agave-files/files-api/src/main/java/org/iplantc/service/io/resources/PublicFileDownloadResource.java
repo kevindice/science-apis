@@ -101,7 +101,7 @@ public class PublicFileDownloadResource extends AbstractFileResource {
     		}
     		else {
     			for (String hostname: StringUtils.split(xForwardHostHeaderValues, ",")) {
-    				tenant = new TenantDao().findByBaseUrl(hostname);
+    				tenant = new TenantDao().findByBaseUrl(hostname.trimToNull());
     				if (tenant != null) break;
     			}
     		}
